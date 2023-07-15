@@ -122,7 +122,7 @@ function setup() {
     ];
 
     //Canyon object
-    canyon = { x_pos: 100, width: 100 }
+    canyons = [{ x_pos: 100, width: 100 }, { x_pos: 700, width: 100 }]
 
     // Trees x positions
     trees_x = [400, 450, 600];
@@ -162,7 +162,10 @@ function draw() {
     translate(-cameraPosX, 0);
 
     //Draw the canyon
-    drawCayon({ t_canyon: canyon });
+    canyons.forEach(c => {
+        drawCayon({ t_canyon: c });
+        checkCanyon({ t_canyon: c })
+    });
 
     //Draw the trees
     for (var i = 0; i < trees_x.length; i++) {
@@ -320,8 +323,6 @@ function draw() {
     } else {
         isFalling = false;
     }
-    checkCanyon({ t_canyon: canyon });
-
 
     // Plummeting mechanics
     if (isPlummeting) {
