@@ -66,7 +66,7 @@ var isLeft;
 var isRight;
 var isFalling;
 var isPlummeting;
-var game_score;
+var game_score =0;
 
 
 // Draw the cloud method
@@ -134,8 +134,8 @@ const drawCayon = ({ t_canyon }) => {
 const checkCollectable = ({ t_collectable }) => {
     // Collectable item display disappear when collected
     if (dist(gameChar_x, gameChar_y, t_collectable.x_pos, t_collectable.y_pos) < 80) {
+        if (!t_collectable.isFound) {game_score+=1};
         t_collectable.isFound = true;
-        game_score+=1;
     }
 }
 
