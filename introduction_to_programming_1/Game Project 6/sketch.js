@@ -1,3 +1,5 @@
+
+
 // Variable declarations
 var gameChar_x;
 var gameChar_y;
